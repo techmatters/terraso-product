@@ -1,1 +1,1 @@
-This is a issue-only repository.
+This is an issue-only repository.
