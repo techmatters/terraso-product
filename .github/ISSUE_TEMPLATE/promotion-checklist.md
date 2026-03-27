@@ -17,7 +17,7 @@ type: Task
 - [ ] LandPKS Facebook (if LandPKS)
 - [ ] Terraso Facebook (Share LandPKS posts)
 - [ ] LandPKS LinkedIn (if LandPKS)
-   - Tag (when appropriate): 
+   - Tag (when appropriate): TBD
 - [ ] Terraso LinkedIn (Share LandPKS post)
    - [ ] Tag: (for major TSM updates, when appropriate): International Environmental Communication Association, Behavior X Climate, Climate Justice Alliance, Agents of Change
    - [ ] Share in groups (when appropriate):   
