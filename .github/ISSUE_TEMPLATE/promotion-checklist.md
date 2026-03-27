@@ -46,7 +46,7 @@ type: Task
      - [ ] Agents of Change
 - [ ] Share in groups (when appropriate):   
      - [ ] [Media for Environment + Social Good](https://www.linkedin.com/groups/7475191/)
-     - [ ] [Keep the Wild Alive – Connecting Science, Soul & Systems](https://www.linkedin.com/groups/16091223/
+     - [ ] [Keep the Wild Alive – Connecting Science, Soul & Systems](https://www.linkedin.com/groups/16091223/)
 - [ ] WhatsApp
      - [ ] "Announcements" Channel of Terraso Community
 - [ ] Signal
