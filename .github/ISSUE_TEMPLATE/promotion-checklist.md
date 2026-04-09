@@ -27,13 +27,11 @@ type: Task
      - [ ] Sustainable International Development & Sustainability
      - [ ] Sustainability Professionals
      - [ ] Climate Change ,Sustainability and Green Marketing
-     - [ ] Soil Science Forum
-     - [ ] Soil Science Professionals
-     - [ ] Consulting Soil Scientists (SSSA-S12)
-     - [ ] Soil Science Society of North Carolina
+     - [ ] [Soil Science Forum](https://www.linkedin.com/groups/4612631/)
+     - [ ] [Soil Science Professionals](https://www.linkedin.com/groups/2713448/)
+     - [ ] [Consulting Soil Scientists (SSSA-S12)](https://www.linkedin.com/groups/81019)
+     - [ ] [Soil Science Society of North Carolina](https://www.linkedin.com/company/soil-science-society-of-north-carolina/)
      - [ ] Soil Science Education
-     - [ ] Media for Environment + Social Good
-     - [ ] Keep the Wild Alive – Connecting Science, Soul & Systems
      - [ ] Social Media for Nonprofit Organizations
      - [ ] Nonprofit Network International
 
@@ -49,6 +47,9 @@ type: Task
      - [ ] [Keep the Wild Alive – Connecting Science, Soul & Systems](https://www.linkedin.com/groups/16091223/)
 - [ ] WhatsApp
      - [ ] "Announcements" Channel of Terraso Community
+     - [ ] LandPKS En
+     - [ ] LandPKS Es
+     - [ ] Terraso
 - [ ] Signal
   - [ ] GOAT
 
