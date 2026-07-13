@@ -18,33 +18,23 @@ type: Task
 - [ ] Terraso Facebook (Share LandPKS posts)
 - [ ] LinkedIn General
   - [ ] Major announcements, update pinned post
-  - [ ] Jim
   - [ ] Team
-- [ ] LandPKS LinkedIn (if LandPKS)
-   - Tag (when appropriate): TBD
-   - [ ] Groups 
-     - [ ] Climate Change/ESG Professionals Group
-     - [ ] Sustainable International Development & Sustainability
-     - [ ] Sustainability Professionals
-     - [ ] Climate Change ,Sustainability and Green Marketing
-     - [ ] [Soil Science Forum](https://www.linkedin.com/groups/4612631/)
-     - [ ] [Soil Science Professionals](https://www.linkedin.com/groups/2713448/)
-     - [ ] [Consulting Soil Scientists (SSSA-S12)](https://www.linkedin.com/groups/81019)
-     - [ ] [Soil Science Society of North Carolina](https://www.linkedin.com/company/soil-science-society-of-north-carolina/)
-     - [ ] Soil Science Education
-     - [ ] Social Media for Nonprofit Organizations
-     - [ ] Nonprofit Network International
+  - [ ] LinkedIn Groups
+    - [ ] Sustainability Professionals
+    - [ ] Climate Change ,Sustainability and Green Marketing
+    - [ ] [Soil Science Forum](https://www.linkedin.com/groups/4612631/)
+    - [ ] [Soil Science Professionals](https://www.linkedin.com/
+    - [ ] [Consulting Soil Scientists (SSSA-S12)](https://www.linkedin.com/groups/81019)
+    - [ ] [Soil Science Society of North Carolina](https://www.linkedin.com/company/soil-science-society-of-north-carolina/)
+    - [ ] Soil Science Education
+    - [ ] Social Media for Nonprofit Organizations
+    - [ ] Nonprofit Network International
+   - Tag (when appropriate): TBD=
 
 - [ ] Terraso LinkedIn (Share LandPKS post)
    - [ ] (Major Announcements) Tag: 
      - [ ] Funders
-     - [ ] International Environmental Communication Association
-     - [ ] Behavior X Climate
-     - [ ] Climate Justice Alliance
-     - [ ] Agents of Change
-- [ ] Share in groups (when appropriate):   
-     - [ ] [Media for Environment + Social Good](https://www.linkedin.com/groups/7475191/)
-     - [ ] [Keep the Wild Alive – Connecting Science, Soul & Systems](https://www.linkedin.com/groups/16091223/)
+
 - [ ] WhatsApp
      - [ ] "Announcements" Channel of Terraso Community
      - [ ] LandPKS En
