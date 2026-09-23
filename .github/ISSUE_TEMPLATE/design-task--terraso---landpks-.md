@@ -10,7 +10,7 @@ type: Task
 
 ## References
 - Product Spec
-- [Things to consider](https://docs.google.com/document/d/1IWN4NlrMBV6R2kxzPdy-GXoEOPFCtI9fcoA4jO1GDrE/edit?tab=t.0#heading=h.vzl8an6rh7pz)
+- [Things to consider](https://docs.google.com/document/d/1FYOuYaokELG6KaZRa0IvkcnG0H2_cUvxgsEwxzmlPLY/edit?tab=t.0#heading=h.m48y7e2ivneb)
 
 ## Acceptance Criteria
 - [ ] Requirement
