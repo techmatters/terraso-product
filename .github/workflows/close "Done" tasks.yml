@@ -1,0 +1,143 @@
+# Close open issues when their Projects (v2) single-select "Status" field is set to "Done"
+on:
+  schedule:
+    # every 15 minutes (adjust as needed)
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+permissions:
+  issues: write     # required to close issues
+  projects: read    # required to read ProjectV2 data
+
+jobs:
+  close-by-project-status:
+    runs-on: ubuntu-latest
+    env:
+      # Configure these values for your repo/project:
+      # PROJECT_NUMBER: the numeric project number shown in the project URL
+      # STATUS_FIELD_NAME: the single-select field name (default 'Status')
+      # DONE_NAMES: comma-separated accepted "done" option names (case-sensitive by default)
+      PROJECT_NUMBER: 7
+      STATUS_FIELD_NAME: "Status"
+      DONE_NAMES: "Done"
+    steps:
+      - name: Close issues whose Project Status is Done
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const projectNumber = parseInt(process.env.PROJECT_NUMBER, 10);
+            const statusFieldName = process.env.STATUS_FIELD_NAME || "Status";
+            const doneNames = (process.env.DONE_NAMES || "Done").split(",").map(s => s.trim());
+
+            if (isNaN(projectNumber)) {
+              core.setFailed("PROJECT_NUMBER must be a valid integer");
+              return;
+            }
+
+            core.info(`Looking in project #${projectNumber} for field "${statusFieldName}" values: ${doneNames.join(", ")}`);
+
+            // Helper to fetch one page of project items
+            async function fetchProjectItems(afterCursor = null) {
+              const after = afterCursor ? `, after: "${afterCursor}"` : "";
+              const query = `
+                query {
+                  repository(owner: "${owner}", name: "${repo}") {
+                    projectV2(number: ${projectNumber}) {
+                      id
+                      title
+                      items(first: 100${after}) {
+                        pageInfo {
+                          hasNextPage
+                          endCursor
+                        }
+                        nodes {
+                          id
+                          fieldValues(first: 100) {
+                            nodes {
+                              __typename
+                              ... on ProjectV2ItemFieldSingleSelectValue {
+                                field {
+                                  id
+                                  name
+                                }
+                                option {
+                                  id
+                                  name
+                                }
+                              }
+                            }
+                          }
+                          content {
+                            __typename
+                            ... on Issue {
+                              number
+                              state
+                              url
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              `;
+              return await github.graphql(query);
+            }
+
+            // Iterate pages, find items whose Status single-select equals one of doneNames
+            let after = null;
+            let totalClosed = 0;
+            let projectTitle = null;
+            while (true) {
+              const result = await fetchProjectItems(after);
+              const project = result.repository && result.repository.projectV2;
+              if (!project) {
+                core.info("Project not found or access denied. Check PROJECT_NUMBER and permissions.");
+                break;
+              }
+              projectTitle = project.title;
+              const items = project.items.nodes || [];
+              for (const item of items) {
+                const content = item.content;
+                if (!content || content.__typename !== "Issue") continue; // only issues
+                const issueNumber = content.number;
+                const issueState = content.state; // OPEN or CLOSED
+
+                // find the field value node for the Status field (single-select)
+                const fvNodes = (item.fieldValues && item.fieldValues.nodes) || [];
+                const statusFv = fvNodes.find(n => n.__typename === "ProjectV2ItemFieldSingleSelectValue" && n.field && n.field.name === statusFieldName);
+                if (!statusFv || !statusFv.option) continue;
+
+                const optionName = statusFv.option.name;
+                if (!doneNames.includes(optionName)) continue;
+
+                if (issueState === "CLOSED") {
+                  core.info(`Issue #${issueNumber} already closed; skipping.`);
+                  continue;
+                }
+
+                core.info(`Closing issue #${issueNumber} (Status = "${optionName}")`);
+                try {
+                  await github.rest.issues.update({
+                    owner,
+                    repo,
+                    issue_number: issueNumber,
+                    state: "closed"
+                  });
+                  totalClosed++;
+                } catch (err) {
+                  core.warning(`Failed to close issue #${issueNumber}: ${err.message}`);
+                }
+              }
+
+              const pageInfo = project.items.pageInfo;
+              if (pageInfo.hasNextPage) {
+                after = pageInfo.endCursor;
+              } else {
+                break;
+              }
+            }
+
+            core.info(`Done scanning project "${projectTitle || projectNumber}". Issues closed: ${totalClosed}`);
